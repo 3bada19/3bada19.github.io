@@ -2,16 +2,11 @@
 <html>
 <body>
 <script>
-document.body.innerText = "JS:OK";
-
-const wasm = new Uint8Array([
-  0x00,0x61,0x73,0x6d,
-  0x01,0x00,0x00,0x00
-]);
-
-WebAssembly.instantiate(wasm)
-  .then(() => document.body.innerText += "\nWASM:OK")
-  .catch(e => document.body.innerText += "\nWASM:FAIL " + e);
+document.body.innerText =
+  navigator.userAgent + "\n" +
+  navigator.platform + "\n" +
+  "Wasm: " + (typeof WebAssembly) + "\n" +
+  "SharedArrayBuffer: " + (typeof SharedArrayBuffer);
 </script>
 </body>
 </html>
